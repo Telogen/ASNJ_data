@@ -1,7 +1,7 @@
 # Analysis Report of Journal Cell Discovery
 
 ## Overall article distribution
-![image.png](https://upload-images.jianshu.io/upload_images/17916304-ff5cf69066ea928f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/17916304-64679ab305349ab4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## Subjects distribution
 ![image.png](https://upload-images.jianshu.io/upload_images/17916304-110fea6f63189684.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
