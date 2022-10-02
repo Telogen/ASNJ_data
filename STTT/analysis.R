@@ -4,21 +4,19 @@ library(ASNJ)
 library(dplyr)
 library(ggplot2)
 
-all_paper_metrics <- readxl::read_excel('./CellDis/paper_metrics.xlsx')
+all_paper_metrics <- readxl::read_excel('./STTT/paper_metrics.xlsx')
 head(all_paper_metrics)
 
 # View(all_paper_metrics)
-# https://www.scijournal.org/impact-factor-of-cell-discovery.shtml
-all_paper_metrics$year <- as.numeric(all_paper_metrics$year)
+# https://www.scijournal.org/impact-factor-of-signal-transduction-targeted-therapy.shtml
 all_paper_metrics$IF <- NA
-all_paper_metrics[which(all_paper_metrics$year == 2015),]$IF <- 0
-all_paper_metrics[which(all_paper_metrics$year == 2016),]$IF <- 2.207
-all_paper_metrics[which(all_paper_metrics$year == 2017),]$IF <- 4.714
-all_paper_metrics[which(all_paper_metrics$year == 2018),]$IF <- 4.582
-all_paper_metrics[which(all_paper_metrics$year == 2019),]$IF <- 4.852
-all_paper_metrics[which(all_paper_metrics$year == 2020),]$IF <- 5.787
-all_paper_metrics[which(all_paper_metrics$year == 2021),]$IF <- 18.08
-all_paper_metrics[which(all_paper_metrics$year == 2022),]$IF <- 38.079
+all_paper_metrics[which(all_paper_metrics$year == 2016),]$IF <- 0
+all_paper_metrics[which(all_paper_metrics$year == 2017),]$IF <- 5.65
+all_paper_metrics[which(all_paper_metrics$year == 2018),]$IF <- 6.02
+all_paper_metrics[which(all_paper_metrics$year == 2019),]$IF <- 13.03
+all_paper_metrics[which(all_paper_metrics$year == 2020),]$IF <- 12.73
+all_paper_metrics[which(all_paper_metrics$year == 2021),]$IF <- 17.38
+all_paper_metrics[which(all_paper_metrics$year == 2022),]$IF <- 38.10
 
 # 发文量
 ggplot(all_paper_metrics,aes(x = year)) +
@@ -29,7 +27,7 @@ ggplot(all_paper_metrics,aes(x = year)) +
   geom_text(aes(y = IF,label = IF),vjust = -.6,size = 5) +
   scale_x_continuous(breaks=c(2016,2017,2018,2019 , 2020, 2021,2022)) +
   scale_fill_discrete(name = "Article type") +
-  ggtitle('Cell Discovery articles') +
+  ggtitle('STTT articles') +
   theme_bw() +
   theme(axis.text.x = element_text(size = 12,color = 'black'),
         axis.text.y = element_text(size = 12,color = 'black'),
@@ -50,8 +48,8 @@ plot_data <- head(plot_data_all,20)
 ggplot(plot_data, aes(x = Subject, y = Frequency,color = Subject,fill = Subject)) +
   geom_bar(stat = "identity", position = position_dodge(width = 0.8, preserve = "single"), width = 0.7) +
   geom_text(aes(label = round(Frequency,2)), size = 5, position = position_dodge(0.8), vjust = -0.5) +
-  ggtitle("Cell Discovery highly cited (citations > 10) papers' subjects distribution") +
-  ylim(0,40) +
+  ggtitle("STTT highly cited (citations > 10) papers' subjects distribution") +
+  ylim(0,82) +
   theme_bw() +
   theme(legend.position = "none",
         plot.margin = unit(c(.2,.2,.2,1.8),units = 'cm'),
@@ -76,7 +74,7 @@ all_paper_metrics$citation_range <- factor(all_paper_metrics$citation_range,
 ggplot(all_paper_metrics,aes(x = citation_range)) +
   geom_bar(width = 0.8, aes(fill = type)) +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
-  ggtitle("Cell Discovery paper citation distribution") +
+  ggtitle("STTT paper citation distribution") +
   theme_bw() +
   xlab('Citation ranges') +
   ylab('Number') +
