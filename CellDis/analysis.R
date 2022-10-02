@@ -5,6 +5,9 @@ library(dplyr)
 library(ggplot2)
 
 all_paper_metrics <- readxl::read_excel('./CellDis/paper_metrics.xlsx')
+all_paper_metrics$mytype <- factor(all_paper_metrics$orig_type,
+                                   levels = c('Article','Review Article','Correspondence'),
+                                   labels = c('Article','Review','Others'))
 head(all_paper_metrics)
 
 # View(all_paper_metrics)
@@ -22,18 +25,18 @@ all_paper_metrics[which(all_paper_metrics$year == 2022),]$IF <- 38.079
 
 # 发文量
 ggplot(all_paper_metrics,aes(x = year)) +
-  geom_bar(width = 0.8, aes(fill = type)) +
+  geom_bar(width = 0.8, aes(fill = mytype)) +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
   geom_point(aes(y = IF)) +
   geom_line(aes(y = IF)) +
   geom_text(aes(y = IF,label = IF),vjust = -.6,size = 5) +
-  scale_x_continuous(breaks=c(2016,2017,2018,2019 , 2020, 2021,2022)) +
+  scale_x_continuous(breaks=c(2015,2016,2017,2018,2019 , 2020, 2021,2022)) +
   scale_fill_discrete(name = "Article type") +
   ggtitle('Cell Discovery articles') +
   theme_bw() +
   theme(axis.text.x = element_text(size = 12,color = 'black'),
         axis.text.y = element_text(size = 12,color = 'black'),
-        plot.title = element_text(hjust = 0.5)) +
+        plot.title = element_text(hjust = 0.5),legend.title = ) +
   ylab('Number')
 
 
@@ -74,7 +77,7 @@ all_paper_metrics$citation_range <- factor(all_paper_metrics$citation_range,
                                 levels = c('0','1-5','6-10','11-50','51-100','101-500','>500'))
 
 ggplot(all_paper_metrics,aes(x = citation_range)) +
-  geom_bar(width = 0.8, aes(fill = type)) +
+  geom_bar(width = 0.8, aes(fill = mytype)) +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
   ggtitle("Cell Discovery paper citation distribution") +
   theme_bw() +

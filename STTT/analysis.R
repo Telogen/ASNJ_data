@@ -5,6 +5,10 @@ library(dplyr)
 library(ggplot2)
 
 all_paper_metrics <- readxl::read_excel('./STTT/paper_metrics.xlsx')
+all_paper_metrics$mytype <- factor(all_paper_metrics$orig_type,
+                                   levels = c('Article','Review Article','Letter'),
+                                   labels = c('Article','Review','Others'))
+head(all_paper_metrics)
 head(all_paper_metrics)
 
 # View(all_paper_metrics)
@@ -20,12 +24,12 @@ all_paper_metrics[which(all_paper_metrics$year == 2022),]$IF <- 38.10
 
 # 发文量
 ggplot(all_paper_metrics,aes(x = year)) +
-  geom_bar(width = 0.8, aes(fill = type)) +
+  geom_bar(width = 0.8, aes(fill = mytype)) +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
   geom_point(aes(y = IF)) +
   geom_line(aes(y = IF)) +
   geom_text(aes(y = IF,label = IF),vjust = -.6,size = 5) +
-  scale_x_continuous(breaks=c(2016,2017,2018,2019 , 2020, 2021,2022)) +
+  scale_x_continuous(breaks=c(2016,2017,2018,2019,2020, 2021,2022)) +
   scale_fill_discrete(name = "Article type") +
   ggtitle('STTT articles') +
   theme_bw() +
@@ -52,7 +56,7 @@ ggplot(plot_data, aes(x = Subject, y = Frequency,color = Subject,fill = Subject)
   ylim(0,82) +
   theme_bw() +
   theme(legend.position = "none",
-        plot.margin = unit(c(.2,.2,.2,1.8),units = 'cm'),
+        plot.margin = unit(c(.2,.2,.2,1.2),units = 'cm'),
         axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1,size = 12,colour = 'black'),
         axis.text.y = element_text(size = 12,colour = 'black'),
         plot.title = element_text(hjust = 0.5))
@@ -72,7 +76,7 @@ all_paper_metrics$citation_range <- factor(all_paper_metrics$citation_range,
                                 levels = c('0','1-5','6-10','11-50','51-100','101-500','>500'))
 
 ggplot(all_paper_metrics,aes(x = citation_range)) +
-  geom_bar(width = 0.8, aes(fill = type)) +
+  geom_bar(width = 0.8, aes(fill = mytype)) +
   geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +
   ggtitle("STTT paper citation distribution") +
   theme_bw() +
