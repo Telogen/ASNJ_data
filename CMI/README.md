@@ -13,7 +13,7 @@ https://www.nature.com/cmi
 
 
 ## Citation distribution
-![image.png](https://upload-images.jianshu.io/upload_images/17916304-8849b5188a52880f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/17916304-4502a98de70a1605.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 ## All paper metrics
