@@ -4,7 +4,7 @@ library(ASNJ)
 library(dplyr)
 library(ggplot2)
 
-all_paper_metrics <- readxl::read_excel('../ASNJ_data//CellDis/paper_metrics.xlsx')
+all_paper_metrics <- readxl::read_excel('../ASNJ_data/CellDis/CellDis_paper_metrics.xlsx')
 all_paper_metrics$mytype <- factor(all_paper_metrics$orig_type,
                                    levels = c('Article','Review Article','Correspondence'),
                                    labels = c('Article','Review','Others'))
@@ -22,6 +22,7 @@ all_paper_metrics[which(all_paper_metrics$year == 2019),]$IF <- 4.852
 all_paper_metrics[which(all_paper_metrics$year == 2020),]$IF <- 5.787
 all_paper_metrics[which(all_paper_metrics$year == 2021),]$IF <- 18.08
 all_paper_metrics[which(all_paper_metrics$year == 2022),]$IF <- 38.079
+all_paper_metrics$IF <- round(all_paper_metrics$IF,1)
 
 # 发文量
 ggplot(all_paper_metrics,aes(x = year)) +

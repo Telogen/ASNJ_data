@@ -7,7 +7,7 @@ https://www.nature.com/cr
 ![image.png](https://upload-images.jianshu.io/upload_images/17916304-680e51ad13414430.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## Subjects distribution
-![image.png](https://upload-images.jianshu.io/upload_images/17916304-a0ec6f7eb278a50e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/17916304-b2bc222deddce16f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 ## Citation distribution
