@@ -30,8 +30,9 @@ dim(all_paper_metrics)
 table(all_paper_metrics$type)
 table(all_paper_metrics$orig_type)
 all_paper_metrics$orig_type <- factor(all_paper_metrics$orig_type,
-                                      labels = c('Article','Letter','Review Article')) %>% as.character()
+                                      labels = c('Article','Others','Review')) %>% as.character()
 NA_type_idx <- which(all_paper_metrics$type == 'NA')
+NA_type_idx
 all_paper_metrics[NA_type_idx,]$type <- all_paper_metrics[NA_type_idx,]$orig_type
 table(all_paper_metrics$type)
 table(all_paper_metrics$orig_type)

@@ -7,6 +7,7 @@ library(ggplot2)
 all_paper_metrics <- readxl::read_excel('../ASNJ_data/Phenomics/paper_metrics.xlsx')
 
 all_paper_metrics <- filter(all_paper_metrics,type != 'Correction')
+table(all_paper_metrics$type)
 all_paper_metrics$mytype <- factor(all_paper_metrics$type,
                                    levels = c('Article','Review','Commentary','Correspondence','Editorial','Meeting Report'),
                                    labels = c('Article','Review','Others','Others','Others','Others'))
