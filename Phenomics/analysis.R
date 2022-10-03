@@ -4,7 +4,7 @@ library(ASNJ)
 library(dplyr)
 library(ggplot2)
 
-all_paper_metrics <- readxl::read_excel('./Phenomics/paper_metrics.xlsx')
+all_paper_metrics <- readxl::read_excel('../ASNJ_data/Phenomics/paper_metrics.xlsx')
 
 all_paper_metrics <- filter(all_paper_metrics,type != 'Correction')
 all_paper_metrics$mytype <- factor(all_paper_metrics$type,

@@ -9,18 +9,35 @@ all_paper_metrics$mytype <- factor(all_paper_metrics$orig_type,
                                    levels = c('Article','Review Article','Letter'),
                                    labels = c('Article','Review','Others'))
 head(all_paper_metrics)
-head(all_paper_metrics)
+
+table(all_paper_metrics$year)
 
 # View(all_paper_metrics)
-# https://www.scijournal.org/impact-factor-of-signal-transduction-targeted-therapy.shtml
+# https://www.scijournal.org/impact-factor-of-cell-res.shtml
 all_paper_metrics$IF <- NA
-all_paper_metrics[which(all_paper_metrics$year == 2016),]$IF <- 0
-all_paper_metrics[which(all_paper_metrics$year == 2017),]$IF <- 5.65
-all_paper_metrics[which(all_paper_metrics$year == 2018),]$IF <- 6.02
-all_paper_metrics[which(all_paper_metrics$year == 2019),]$IF <- 13.03
-all_paper_metrics[which(all_paper_metrics$year == 2020),]$IF <- 12.73
-all_paper_metrics[which(all_paper_metrics$year == 2021),]$IF <- 17.38
-all_paper_metrics[which(all_paper_metrics$year == 2022),]$IF <- 38.10
+all_paper_metrics[which(all_paper_metrics$year == 2022),]$IF <- 46.297
+all_paper_metrics[which(all_paper_metrics$year == 2021),]$IF <- 21.404
+all_paper_metrics[which(all_paper_metrics$year == 2020),]$IF <- 10.301
+all_paper_metrics[which(all_paper_metrics$year == 2019),]$IF <- 9.644
+all_paper_metrics[which(all_paper_metrics$year == 2018),]$IF <- 8.736
+all_paper_metrics[which(all_paper_metrics$year == 2017),]$IF <- 8.255
+all_paper_metrics[which(all_paper_metrics$year == 2016),]$IF <- 7.824
+all_paper_metrics[which(all_paper_metrics$year == 2015),]$IF <- 7.293
+all_paper_metrics[which(all_paper_metrics$year == 2014),]$IF <- 6.515
+all_paper_metrics[which(all_paper_metrics$year == 2013),]$IF <- 7.734
+all_paper_metrics[which(all_paper_metrics$year == 2012),]$IF <- 7.232
+all_paper_metrics[which(all_paper_metrics$year == 2011),]$IF <- 5.858
+all_paper_metrics[which(all_paper_metrics$year == 2010),]$IF <- 7.598
+all_paper_metrics[which(all_paper_metrics$year == 2009),]$IF <- 6.506
+all_paper_metrics[which(all_paper_metrics$year == 2008),]$IF <- 3.868
+all_paper_metrics[which(all_paper_metrics$year == 2007),]$IF <- 4.173
+all_paper_metrics[which(all_paper_metrics$year == 2006),]$IF <- 3.575
+all_paper_metrics[which(all_paper_metrics$year == 2005),]$IF <- 2.391
+all_paper_metrics[which(all_paper_metrics$year == 2004),]$IF <- 2.22
+all_paper_metrics[which(all_paper_metrics$year == 2003),]$IF <- 1.718
+all_paper_metrics[which(all_paper_metrics$year == 2002),]$IF <- 1.945
+all_paper_metrics[which(all_paper_metrics$year == 2001),]$IF <- 2.102
+all_paper_metrics[which(all_paper_metrics$year == 2000),]$IF <- 1.677
 
 # 发文量
 ggplot(all_paper_metrics,aes(x = year)) +
@@ -29,7 +46,7 @@ ggplot(all_paper_metrics,aes(x = year)) +
   geom_point(aes(y = IF)) +
   geom_line(aes(y = IF)) +
   geom_text(aes(y = IF,label = IF),vjust = -.6,size = 5) +
-  scale_x_continuous(breaks=c(2016,2017,2018,2019,2020, 2021,2022)) +
+  scale_x_continuous(breaks=2000:2022) +
   scale_fill_discrete(name = "Article type") +
   ggtitle('STTT articles') +
   theme_bw() +
