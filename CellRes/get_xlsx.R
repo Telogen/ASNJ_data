@@ -1,5 +1,5 @@
 # pipeline
-devtools::install_github('Telogen/ASNJ')
+# devtools::install_github('Telogen/ASNJ')
 
 
 library(ASNJ)
@@ -30,7 +30,8 @@ dim(all_paper_metrics)
 table(all_paper_metrics$type)
 table(all_paper_metrics$orig_type)
 all_paper_metrics$orig_type <- factor(all_paper_metrics$orig_type,
-                                      labels = c('Article','Letter','Review Article')) %>% as.character()
+                                      levels = c('article', 'comment', 'review'),
+                                      labels = c('Article','Others','Review Article')) %>% as.character()
 NA_type_idx <- which(all_paper_metrics$type == 'NA')
 all_paper_metrics[NA_type_idx,]$type <- all_paper_metrics[NA_type_idx,]$orig_type
 table(all_paper_metrics$type)
