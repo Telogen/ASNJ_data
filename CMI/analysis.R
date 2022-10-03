@@ -4,23 +4,39 @@ library(ASNJ)
 library(dplyr)
 library(ggplot2)
 
-all_paper_metrics <- readxl::read_excel('../ASNJ_data/STTT/paper_metrics.xlsx')
+all_paper_metrics <- readxl::read_excel('../ASNJ_data/CMI/CMI_paper_metrics.xlsx')
 all_paper_metrics$mytype <- factor(all_paper_metrics$orig_type,
                                    levels = c('Article','Review Article','Letter'),
                                    labels = c('Article','Review','Others'))
 head(all_paper_metrics)
 head(all_paper_metrics)
 
+
+
+
+
 # View(all_paper_metrics)
-# https://www.scijournal.org/impact-factor-of-signal-transduction-targeted-therapy.shtml
+# https://www.scijournal.org/impact-factor-of-cell-mol-immunol.shtml
 all_paper_metrics$IF <- NA
-all_paper_metrics[which(all_paper_metrics$year == 2016),]$IF <- 0
-all_paper_metrics[which(all_paper_metrics$year == 2017),]$IF <- 5.65
-all_paper_metrics[which(all_paper_metrics$year == 2018),]$IF <- 6.02
-all_paper_metrics[which(all_paper_metrics$year == 2019),]$IF <- 13.03
-all_paper_metrics[which(all_paper_metrics$year == 2020),]$IF <- 12.73
-all_paper_metrics[which(all_paper_metrics$year == 2021),]$IF <- 17.38
-all_paper_metrics[which(all_paper_metrics$year == 2022),]$IF <- 38.10
+all_paper_metrics[which(all_paper_metrics$year == 2022),]$IF <- 22.096
+all_paper_metrics[which(all_paper_metrics$year == 2021),]$IF <- 13.845
+all_paper_metrics[which(all_paper_metrics$year == 2020),]$IF <- 4.993
+all_paper_metrics[which(all_paper_metrics$year == 2019),]$IF <- 4.003
+all_paper_metrics[which(all_paper_metrics$year == 2018),]$IF <- 5.72
+all_paper_metrics[which(all_paper_metrics$year == 2017),]$IF <- 6.028
+all_paper_metrics[which(all_paper_metrics$year == 2016),]$IF <- 4.076
+all_paper_metrics[which(all_paper_metrics$year == 2015),]$IF <- 3.557
+all_paper_metrics[which(all_paper_metrics$year == 2014),]$IF <- 3.315
+all_paper_metrics[which(all_paper_metrics$year == 2013),]$IF <- 3.732
+all_paper_metrics[which(all_paper_metrics$year == 2012),]$IF <- 3.752
+all_paper_metrics[which(all_paper_metrics$year == 2011),]$IF <- 3.108
+all_paper_metrics[which(all_paper_metrics$year == 2010),]$IF <- 2.395
+all_paper_metrics[which(all_paper_metrics$year == 2009),]$IF <- 2.891
+all_paper_metrics[which(all_paper_metrics$year == 2008),]$IF <- 3.353
+all_paper_metrics[which(all_paper_metrics$year == 2007),]$IF <- 2.312
+all_paper_metrics[which(all_paper_metrics$year == 2006),]$IF <- 0.824
+all_paper_metrics[which(all_paper_metrics$year == 2005),]$IF <- 0.045
+all_paper_metrics[which(all_paper_metrics$year == 2004),]$IF <- 0
 
 # 发文量
 ggplot(all_paper_metrics,aes(x = year)) +

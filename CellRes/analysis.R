@@ -4,7 +4,7 @@ library(ASNJ)
 library(dplyr)
 library(ggplot2)
 
-all_paper_metrics <- readxl::read_excel('../ASNJ_data/STTT/paper_metrics.xlsx')
+all_paper_metrics <- readxl::read_excel('../ASNJ_data/CellRes/CellRes_paper_metrics.xlsx')
 all_paper_metrics$mytype <- factor(all_paper_metrics$orig_type,
                                    levels = c('Article','Review Article','Letter'),
                                    labels = c('Article','Review','Others'))
